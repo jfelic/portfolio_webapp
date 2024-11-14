@@ -16,34 +16,59 @@ class Homepage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        backgroundColor: const Color.fromARGB(255, 227, 227, 227),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         actions: const [
-          IconButton(
-            icon: Icon(Icons.circle),
-            onPressed: null,
+          Image(
+            image: AssetImage('assets/github.png'),
+            height: 25,
+            width: 25,
           ),
-          IconButton(
-            icon: Icon(Icons.circle),
-            onPressed: null,
+
+          SizedBox(width: 10),
+
+          Image(
+            image: AssetImage('assets/linkedin.png'),
+            height: 25,
+            width: 25,
           ),
-          IconButton(
-            icon: Icon(Icons.circle),
-            onPressed: null,
+
+          SizedBox(width: 10),
+
+          Image(
+            image: AssetImage('assets/email.png'),
+            height: 25,
+            width: 25,
           ),
+
+          SizedBox(width: 10),
+
         ],
       ),
       // Main Body
       body: Container(
         padding: const EdgeInsets.all(16.0),
-        child: const Center(
-          child: Text(
-            'Content goes here',
-            style: TextStyle(
-              fontSize: 16,
+          color: const Color.fromARGB(255, 255, 255, 255),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Hello, World!',
+                style: TextStyle(
+                  fontSize: 16,
+                )
+              ),
 
-            )
+              SizedBox(width: 200),
+
+              ClipOval(
+                child: Image(
+                  image: AssetImage('assets/profilePlaceholder.jpg'),
+                  width: 250,
+                  height: 250,
+                ),
+              ),
+            ],
           ),
-        ),
       ),
     );
   }
