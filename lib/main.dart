@@ -11,7 +11,7 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => Homepage(),
+      builder: (context, state) => const Homepage(),
     )
   ]
 );
@@ -25,6 +25,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Julian Feliciano',
       routerConfig: _router,
+      debugShowCheckedModeBanner: false, // Removes debug banner
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color(0xFF000000),
+          secondary: const Color(0xFF000000),
+        ),
+        fontFamily: 'GeistMono',
+      )
     );
   }
 }

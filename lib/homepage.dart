@@ -5,27 +5,46 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFFFFFFF), 
-      child: Column(
-        children: [
-          // Header
-          Container(
-            color: const Color.fromARGB(255, 231, 231, 231),
-            child: const Row(
-              children: [
-                Text(
-                  "Julian Feliciano",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  )
-                ),
-              ],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      // Header
+      appBar: AppBar(
+        title: const Text(
+          "Julian Feliciano",
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: const Color.fromARGB(255, 227, 227, 227),
+        actions: const [
+          IconButton(
+            icon: Icon(Icons.circle),
+            onPressed: null,
+          ),
+          IconButton(
+            icon: Icon(Icons.circle),
+            onPressed: null,
+          ),
+          IconButton(
+            icon: Icon(Icons.circle),
+            onPressed: null,
+          ),
+        ],
+      ),
+      // Main Body
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: const Center(
+          child: Text(
+            'Content goes here',
+            style: TextStyle(
+              fontSize: 16,
+
             )
-          )
-        ]
-      ) 
+          ),
+        ),
+      ),
     );
   }
 }
