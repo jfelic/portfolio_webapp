@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Julian Feliciano',
+      title: 'Julian Feliciano | Portfolio',
       routerConfig: _router,
       debugShowCheckedModeBanner: false, // Removes debug banner
       theme: ThemeData(
