@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_webapp/skill_icon.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
+  @override
+  State<Homepage> createState() => _HomepageState();
+}
+class _HomepageState extends State<Homepage> {
+
+  final ScrollController _skillsScrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _skillsScrollController.dispose();
+    super.dispose();
+  }
+  
   @override
   Widget build(BuildContext context) {
     const double skillIconPadding = 20.0;
@@ -90,8 +103,8 @@ Center(
       constraints: const BoxConstraints(
         maxWidth: 835,
       ),
-      child: const ExpansionTile(
-        title: SelectableText(
+      child: ExpansionTile(
+        title: const SelectableText(
           "Skills",
           style: TextStyle(
             fontSize: 22,
@@ -99,101 +112,107 @@ Center(
           ),
         ),
         children: [
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Swift.svg',
-                        label: 'Swift',
+          Scrollbar(
+            controller: _skillsScrollController,
+            thumbVisibility: true,
+            interactive: true,
+            child: SingleChildScrollView(
+              controller: _skillsScrollController,
+              scrollDirection: Axis.horizontal,
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:  [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Swift.svg',
+                          label: 'Swift',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Dart.svg',
-                        label: 'Dart',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Dart.svg',
+                          label: 'Dart',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Flutter.svg',
-                        label: 'Flutter',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Flutter.svg',
+                          label: 'Flutter',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/React.svg',
-                        label: 'React Native',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/React.svg',
+                          label: 'React Native',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Python.svg',
-                        label: 'Python',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Python.svg',
+                          label: 'Python',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Java.svg',
-                        label: 'Java',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Java.svg',
+                          label: 'Java',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/JavaScript.svg',
-                        label: 'JavaScript',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/JavaScript.svg',
+                          label: 'JavaScript',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Next.js.svg',
-                        label: 'Next.js',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Next.js.svg',
+                          label: 'Next.js',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Git.svg',
-                        label: 'Git',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Git.svg',
+                          label: 'Git',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Firebase.svg',
-                        label: 'Firebase',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Firebase.svg',
+                          label: 'Firebase',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/CSharp.svg',
-                        label: 'C#',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/CSharp.svg',
+                          label: 'C#',
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Unity.svg',
-                        label: 'Unity',
+                      Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                          assetPath: 'assets/Unity.svg',
+                          label: 'Unity',
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           )
         ],
