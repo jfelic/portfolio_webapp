@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   go_router: ^14.6.0
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -68,3 +69,15 @@ flutter:
     - assets/github.png
     - assets/linkedin.png
     - assets/profilePlaceholder.jpg
+    - assets/CSharp.svg
+    - assets/Dart.svg
+    - assets/Firebase.svg
+    - assets/Flutter.svg
+    - assets/Git.svg
+    - assets/Java.svg
+    - assets/JavaScript.svg
+    - assets/Next.js.svg
+    - assets/Python.svg
+    - assets/React.svg
+    - assets/Swift.svg
+    - assets/Unity.svg

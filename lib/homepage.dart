@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio_webapp/skill_icon.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const double skillIconPadding = 20.0;
+
     return Scaffold(
       backgroundColor: Colors.white,
       // Header
       appBar: AppBar(
-        title: const Text(
+        title: const SelectableText(
           "Julian Feliciano",
           style: TextStyle(
             fontSize: 22,
@@ -61,12 +64,12 @@ class Homepage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: Text(
-                          "Hello,\n\n"
-                          "I'm a Computer Science student currently based out of Charleston, SC. I'm currently specializing in Mobile Development (hence why this webpage was built using Flutter), but my interests are everything software.\n\n"
-                                
-                          "I've focused on developing as an Engineer and Computer Scientist during my educational career rather than just Mobile Development, and this is reflected in the variety of my projects. Take a look if you have the time, thank you!",
-                                
+                        child: SelectableText(
+                            "Hello, and welcome!\n\n"
+                            "I'm a senior Computer Science student based in Charleston, SC, specializing in Mobile Development."
+                            "(In fact, this website was built using Flutter.) While mobile development has been my recent focus, my four years of academic training as a Computer Science student have equipped me with a solid foundation in Computer Science principles.\n\n"
+                            "This means I’m not just a mobile developer—I’m a capable software engineer who can adapt and excel in a variety of development contexts.\n\n"
+                            "Please take a look around, and thanks for visiting!",         
                           style: TextStyle(
                             fontSize: 16,
                           )
@@ -88,7 +91,7 @@ Center(
         maxWidth: 835,
       ),
       child: const ExpansionTile(
-        title: Text(
+        title: SelectableText(
           "Skills",
           style: TextStyle(
             fontSize: 22,
@@ -96,47 +99,103 @@ Center(
           ),
         ),
         children: [
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Languages",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Swift.svg',
+                        label: 'Swift',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Dart.svg',
+                        label: 'Dart',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Flutter.svg',
+                        label: 'Flutter',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/React.svg',
+                        label: 'React Native',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Python.svg',
+                        label: 'Python',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Java.svg',
+                        label: 'Java',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/JavaScript.svg',
+                        label: 'JavaScript',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Next.js.svg',
+                        label: 'Next.js',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Git.svg',
+                        label: 'Git',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Firebase.svg',
+                        label: 'Firebase',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/CSharp.svg',
+                        label: 'C#',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Unity.svg',
+                        label: 'Unity',
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 8),
-                Text("• Dart/Flutter\n• Python\n• Java\n• JavaScript"),
-                
-                SizedBox(height: 16),
-                
-                Text(
-                  "Technologies",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text("• Git\n• Firebase\n• REST APIs\n• SQL"),
-                
-                SizedBox(height: 16),
-                
-                Text(
-                  "Other",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: 8),
-                Text("• Agile Development\n• Unit Testing\n• CI/CD\n• Technical Writing"),
               ],
             ),
-          ),
+          )
         ],
       ),
     ),
@@ -153,7 +212,7 @@ Center(
         maxWidth: 835,
       ),
       child: const ExpansionTile(
-        title: Text(
+        title: SelectableText(
           "Experience",
           style: TextStyle(
             fontSize: 22,
@@ -166,98 +225,98 @@ Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                SelectableText(
                   "Plinkd",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "Mobile App Development and UX/UI Design Intern",
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "May 2024 - September 2024",
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(height: 8),
-                Text("• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
+                SelectableText("• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
                      "• Utilized Swift and Kotlin for cross-platform mobile app development\n"
                      "• Collaborated with my peers to enhance the app UX/UI"),
                 
                 SizedBox(height: 24),
                 
-                Text(
+                SelectableText(
                   "Research Assistant",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "Virtual Reality Programmer",
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "August 2024 - Present",
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(height: 8),
-                Text("• Utilizing Unity and C# to help Dr. Schoemann create a Virtual Reality gaming experience"),
+                SelectableText("• Utilizing Unity and C# to help Dr. Schoemann create a Virtual Reality gaming experience"),
                 
                 SizedBox(height: 24),
                 
-                Text(
+                SelectableText(
                   "Books In Every Bag",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "Web Developer/Designer",
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "March 2024 - Present",
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(height: 8),
-                Text("• Developed and maintained the organization's website\n"
+                SelectableText("• Developed and maintained the organization's website\n"
                      "• Improved website functionality and user experience"),
                 
                 SizedBox(height: 24),
                 
-                Text(
+                SelectableText(
                   "Whole Foods Market",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "Customer Service Representative/Store Receiver",
                   style: TextStyle(
                     fontSize: 16,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                Text(
+                SelectableText(
                   "November 2020 - June 2022",
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(height: 8),
-                Text("• Provided customer service and managed store inventory"),
+                SelectableText("• Provided customer service and managed store inventory"),
               ],
             ),
           ),
