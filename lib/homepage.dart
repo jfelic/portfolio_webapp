@@ -3,6 +3,7 @@ import 'package:my_portfolio_webapp/header.dart';
 import 'package:my_portfolio_webapp/skills_section.dart';
 import 'package:my_portfolio_webapp/introduction_section.dart';
 import 'package:my_portfolio_webapp/experience_section.dart';
+import 'package:my_portfolio_webapp/projects_section.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -16,7 +17,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: HeaderWidget(),
+      appBar: const HeaderWidget(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -30,6 +31,7 @@ class _HomepageState extends State<Homepage> {
                   IntroductionSection(),
                   SkillsSection(),
                   ExperienceSection(),
+                  ProjectsSection(),
                 ],
               ),
             ),
