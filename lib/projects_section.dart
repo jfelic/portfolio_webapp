@@ -24,7 +24,7 @@ class ProjectsSection extends StatelessWidget {
             ),
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
                 child: Wrap(
                   spacing: 32,
                   runSpacing: 32,
@@ -32,25 +32,61 @@ class ProjectsSection extends StatelessWidget {
                   children: [
                     ProjectCard(
                       title: "Leaf N' Lit 🌱📚",
-                      screenshot: 'assets/library_screen.png',
+                      screenshot: 'assets/leafnlit_screenshots/login_screen.png',
+
                       details: ProjectDetails(
                         title: "Leaf N' Lit 🌱📚",
                         url: "https://github.com/jfelic/leaf-n-lit",
                         description: "A Flutter mobile app combining reading tracking with virtual plant care.",
-                        screenshots: ['assets/project1_1.png', 'assets/project1_2.png'],
+                        screenshots: [
+                          'assets/leafnlit_screenshots/login_screen.png',
+                          'assets/leafnlit_screenshots/registration_screen.png',
+                          'assets/leafnlit_screenshots/session_screen.png',
+                          'assets/leafnlit_screenshots/session_duration.png',
+                          'assets/leafnlit_screenshots/active_session.png',
+                          'assets/leafnlit_screenshots/garden_screen.png',
+                          'assets/leafnlit_screenshots/library_screen.png',
+                          'assets/leafnlit_screenshots/add_book_screen.png',
+                          'assets/leafnlit_screenshots/search_book.png',
+                        ],
                         technologies: ["Flutter", "Dart", "Google Books API", "Firebase Authentication", "Firebase Firestore"],
                       ),
+
                     ),
                     ProjectCard(
-                      title: "Project 2",
-                      screenshot: 'assets/project2.png',
+                      title: "Tomodoro Timer 🍅⏰",
+                      screenshot: 'assets/tomodoro_screenshots/timer_screen.png',
+
                       details: ProjectDetails(
-                        title: "Project 2",
-                        url: "https://github.com/jfelic/project2",
-                        description: "Detailed description of Project 2",
-                        screenshots: ['assets/project2_1.png', 'assets/project2_2.png'],
-                        technologies: ["React", "JavaScript"],
+                        title: "Tomodoro Timer 🍅⏰",
+                        url: "https://github.com/jfelic/PomodoroAndTasklistApp",
+                        description: "A tomato-themed Pomodoro timer and task management app built with React Native. Combine focused work sessions with efficient task management.",
+                        screenshots: [
+                          'assets/tomodoro_screenshots/timer_screen.png',
+                          'assets/tomodoro_screenshots/tasks_list.png',
+                          'assets/tomodoro_screenshots/add_task.png',
+                          'assets/tomodoro_screenshots/edit_task.png',
+                          ],
+                        technologies: ["React Native", "Expo"],
                       ),
+
+                    ),
+
+                    ProjectCard(
+                      title: "JustPick 🎬🍿",
+                      screenshot: 'assets/justpick_screenshots/home.png',
+
+                      details: ProjectDetails(
+                        title: "JustPick 🎬🍿",
+                        url: 'https://github.com/jfelic/JustPick',
+                        description: 
+                        "🚧This project is under construction🚧",
+                        screenshots: [
+                          'assets/justpick_screenshots/home.png',
+                          'assets/justpick_screenshots/host.png',
+                        ],
+                        technologies: ["SwiftUI", "Firebase Firestore"],
+                      )
                     ),
                   ],
                 ),
@@ -92,18 +128,26 @@ class _ProjectCardState extends State<ProjectCard> {
           showDialog(
             context: context,
             builder: (context) => Dialog(
-              child: Stack(
-                children: [
-                  widget.details,
-                  Positioned(
-                    right: 8,
-                    top: 8,
-                    child: IconButton(
-                      icon: const Icon(Icons.close),
-                      onPressed: () => Navigator.of(context).pop(),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  maxWidth: 800,
+                  maxHeight: 800,
+                ),
+                child: Stack(
+                  children: [
+                    SingleChildScrollView( // Allow scrolling if content is too long
+                      child: widget.details,
                     ),
-                  ),
-                ],
+                    Positioned(
+                      right: 8,
+                      top: 8,
+                      child: IconButton(
+                        icon: const Icon(Icons.close),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           );
@@ -204,15 +248,29 @@ class ProjectDetails extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: screenshots.map((screenshot) {
-                return Image.asset(screenshot, width: 100, height: 100);
-              }).toList(),
+
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: screenshots.map((screenshot) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        screenshot,
+                        width: 200,
+                        height: 500,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
+
             const SizedBox(height: 16),
+
             const Text(
               "Technologies Used",
               style: TextStyle(

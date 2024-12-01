@@ -65,7 +65,6 @@ flutter:
     - assets/email.png
     - assets/github.png
     - assets/linkedin.png
-    - assets/profilePlaceholder.jpg
     - assets/CSharp.svg
     - assets/Dart.svg
     - assets/Firebase.svg
@@ -78,4 +77,21 @@ flutter:
     - assets/React.svg
     - assets/Swift.svg
     - assets/Unity.svg
-    - assets/library_screen.png
+    - assets/leafnlit_screenshots/active_session.png
+    - assets/leafnlit_screenshots/add_book_screen.png
+    - assets/leafnlit_screenshots/garden_screen.png
+    - assets/leafnlit_screenshots/login_screen.png
+    - assets/leafnlit_screenshots/library_screen.png
+    - assets/leafnlit_screenshots/registration_screen.png
+    - assets/leafnlit_screenshots/search_book.png
+    - assets/leafnlit_screenshots/session_duration.png
+    - assets/leafnlit_screenshots/session_screen.png
+    - assets/tomodoro_screenshots/add_task.png
+    - assets/tomodoro_screenshots/edit_task.png
+    - assets/tomodoro_screenshots/tasks_list.png
+    - assets/tomodoro_screenshots/timer_screen.png
+    - assets/justpick_screenshots/home.png
+    - assets/justpick_screenshots/host.png
+
+
+
