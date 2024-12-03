@@ -14,8 +14,8 @@ class ProjectsSection extends StatelessWidget {
           constraints: const BoxConstraints(
             maxWidth: 835,
           ),
-          child: const ExpansionTile(
-            title: SelectableText(
+          child: ExpansionTile(
+            title: const SelectableText(
               "Projects",
               style: TextStyle(
                 fontSize: 22,
@@ -24,7 +24,7 @@ class ProjectsSection extends StatelessWidget {
             ),
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
                 child: Wrap(
                   spacing: 32,
                   runSpacing: 32,
@@ -33,7 +33,6 @@ class ProjectsSection extends StatelessWidget {
                     ProjectCard(
                       title: "Leaf N' Lit 🌱📚",
                       screenshot: 'assets/leafnlit_screenshots/login_screen.png',
-
                       details: ProjectDetails(
                         title: "Leaf N' Lit 🌱📚",
                         url: "https://github.com/jfelic/leaf-n-lit",
@@ -51,12 +50,10 @@ class ProjectsSection extends StatelessWidget {
                         ],
                         technologies: ["Flutter", "Dart", "Google Books API", "Firebase Authentication", "Firebase Firestore"],
                       ),
-
                     ),
                     ProjectCard(
                       title: "Tomodoro Timer 🍅⏰",
                       screenshot: 'assets/tomodoro_screenshots/timer_screen.png',
-
                       details: ProjectDetails(
                         title: "Tomodoro Timer 🍅⏰",
                         url: "https://github.com/jfelic/PomodoroAndTasklistApp",
@@ -66,27 +63,23 @@ class ProjectsSection extends StatelessWidget {
                           'assets/tomodoro_screenshots/tasks_list.png',
                           'assets/tomodoro_screenshots/add_task.png',
                           'assets/tomodoro_screenshots/edit_task.png',
-                          ],
+                        ],
                         technologies: ["React Native", "Expo"],
                       ),
-
                     ),
-
                     ProjectCard(
                       title: "JustPick 🎬🍿",
                       screenshot: 'assets/justpick_screenshots/home.png',
-
                       details: ProjectDetails(
                         title: "JustPick 🎬🍿",
-                        url: 'https://github.com/jfelic/JustPick',
-                        description: 
-                        "🚧This project is under construction🚧",
+                        url: "https://github.com/jfelic/JustPick",
+                        description: "🚧 This project is under construction 🚧",
                         screenshots: [
                           'assets/justpick_screenshots/home.png',
                           'assets/justpick_screenshots/host.png',
                         ],
                         technologies: ["SwiftUI", "Firebase Firestore"],
-                      )
+                      ),
                     ),
                   ],
                 ),
@@ -135,7 +128,7 @@ class _ProjectCardState extends State<ProjectCard> {
                 ),
                 child: Stack(
                   children: [
-                    SingleChildScrollView( // Allow scrolling if content is too long
+                    SingleChildScrollView(
                       child: widget.details,
                     ),
                     Positioned(
@@ -190,7 +183,7 @@ class _ProjectCardState extends State<ProjectCard> {
   }
 }
 
-class ProjectDetails extends StatelessWidget {
+class ProjectDetails extends StatefulWidget {
   final String title;
   final String url;
   final String description;
@@ -207,6 +200,19 @@ class ProjectDetails extends StatelessWidget {
   });
 
   @override
+  State<ProjectDetails> createState() => _ProjectDetailsState();
+}
+
+class _ProjectDetailsState extends State<ProjectDetails> {
+  final ScrollController _projectsScrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _projectsScrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
@@ -215,7 +221,7 @@ class ProjectDetails extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              title,
+              widget.title,
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -224,13 +230,13 @@ class ProjectDetails extends StatelessWidget {
             const SizedBox(height: 8),
             GestureDetector(
               onTap: () async {
-                final Uri url = Uri.parse(this.url);
+                final Uri url = Uri.parse(widget.url);
                 if (!await launchUrl(url)) {
                   throw Exception('Could not launch $url');
                 }
               },
               child: Text(
-                url,
+                widget.url,
                 style: const TextStyle(
                   fontSize: 18,
                   color: Colors.blue,
@@ -239,7 +245,7 @@ class ProjectDetails extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Text(description),
+            Text(widget.description),
             const SizedBox(height: 16),
             const Text(
               "Screenshots",
@@ -248,29 +254,32 @@ class ProjectDetails extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: screenshots.map((screenshot) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 25.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        screenshot,
-                        width: 200,
-                        height: 500,
-                        fit: BoxFit.contain,
+            Scrollbar(
+              controller: _projectsScrollController,
+              thumbVisibility: true,
+              interactive: true,
+              child: SingleChildScrollView(
+                controller: _projectsScrollController,
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: widget.screenshots.map((screenshot) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 25.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          screenshot,
+                          width: 200,
+                          height: 400,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                  );
-                }).toList(),
+                    );
+                  }).toList(),
+                ),
               ),
             ),
-
             const SizedBox(height: 16),
-
             const Text(
               "Technologies Used",
               style: TextStyle(
@@ -282,7 +291,7 @@ class ProjectDetails extends StatelessWidget {
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: technologies.map((tech) {
+              children: widget.technologies.map((tech) {
                 return Chip(label: Text(tech));
               }).toList(),
             ),
