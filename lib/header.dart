@@ -39,14 +39,31 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       actions: [
+        const Text(
+          "Important Links",
+          style: TextStyle(
+            fontSize: 12,
+          ),
+        ),
+
+        const SizedBox(width: 8),
+
+        const Icon(
+          Icons.arrow_forward,
+          size: 18,
+          color: Colors.black,
+        ),
+
+        const SizedBox(width: 8),
+
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: GestureDetector(
             onTap: () => _launchURL('https://github.com/jfelic'),
             child: const Image(
               image: AssetImage('assets/github.png'),
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
             ),
           ),
         ),
@@ -57,8 +74,8 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
             onTap: () => _launchURL('https://www.linkedin.com/in/jfelic/'),
             child: const Image(
               image: AssetImage('assets/linkedin.png'),
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
             ),
           ),
         ),
@@ -69,8 +86,8 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
             onTap: () => _copyToClipboard(context),
             child: const Image(
               image: AssetImage('assets/email.png'),
-              height: 25,
-              width: 25,
+              height: 30,
+              width: 30,
             ),
           ),
         ),

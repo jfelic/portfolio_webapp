@@ -93,16 +93,16 @@ class ExperienceContent extends StatelessWidget {
             company: "Plinkd",
             position: "Mobile App Development and UX/UI Design Intern",
             duration: "May 2024 - September 2024",
-            description: "• Optimized API calls, enhancing the iOS application performance from 44 FPS to 60 FPS using expertise in Swift\n"
-                "• Utilized Swift and Kotlin for cross-platform mobile app development, incorporating routine technical discussions and design evaluations\n"
-                "• Collaborated with team members to transform app UX/UI, involving active participation in design and code reviews",
+            description: "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
+                "• Utilized Swift and Kotlin for cross-platform mobile app development\n"
+                "• Collaborated with my peers to enhance the app UX/UI",
           ),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Research Assistant",
             position: "Virtual Reality Programmer",
             duration: "August 2024 - Present",
-            description: "• Utilized Unity and C# to support Dr. Schoemann in developing a Virtual Reality gaming experience, employing software development skills applicable to interactive applications",
+            description: "• Utilizing Unity and C# to help Dr. Schoemann create a Virtual Reality gaming experience",
           ),
           SizedBox(height: 24),
           ExperienceItem(

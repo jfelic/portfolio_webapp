@@ -14,7 +14,7 @@ class ProjectsSection extends StatelessWidget {
           constraints: const BoxConstraints(
             maxWidth: 835,
           ),
-          child: ExpansionTile(
+          child: const ExpansionTile(
             title: const SelectableText(
               "Projects",
               style: TextStyle(
