@@ -1,20 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:html' as html;
+import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceSection extends StatelessWidget {
   const ExperienceSection({super.key});
-
-  void downloadCV() {
-    final anchor = html.AnchorElement()
-      ..href = 'assets/cv.pdf'
-      ..download = 'JulianFeliciano_CV.pdf'
-      ..style.display = 'none';
-
-    html.document.body?.children.add(anchor);
-
-    anchor.click();
-    anchor.remove();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +28,15 @@ class ExperienceSection extends StatelessWidget {
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: ElevatedButton(
-                    onPressed: downloadCV,
+                  onPressed: () async {
+                    final url = Uri.parse('https://drive.google.com/file/d/1DjpTD1B_1RJeAPnUnqjtd1Rl_C3xAgH1/view?usp=sharing');
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    } else {
+                      // Handle error
+                      print("Error downloading CV");
+                    }
+                  },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: Colors.white,
@@ -94,8 +90,10 @@ class ExperienceContent extends StatelessWidget {
             position: "Mobile App Development and UX/UI Design Intern",
             duration: "May 2024 - September 2024",
             description: "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
-                "• Utilized Swift and Kotlin for cross-platform mobile app development\n"
-                "• Collaborated with my peers to enhance the app UX/UI",
+                "• Rewrote the API Manager class, optimizing data handling and improving maintainability, resulting in a 36% increase in application"
+                    "performance (from an average of 44 FPS to 60 FPS)\n"
+                "• Implemented functionality for users to link and manage social media accounts on their profiles, integrating with a Laravel-based" 
+                    "backend for seamless data synchronization"
           ),
           SizedBox(height: 24),
           ExperienceItem(

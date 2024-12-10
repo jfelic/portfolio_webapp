@@ -90,8 +90,10 @@ flutter:
     - assets/tomodoro_screenshots/edit_task.png
     - assets/tomodoro_screenshots/tasks_list.png
     - assets/tomodoro_screenshots/timer_screen.png
+    - assets/justpick_screenshots/session.png
     - assets/justpick_screenshots/home.png
     - assets/justpick_screenshots/host.png
+    - assets/justpick_screenshots/join.png
     - assets/cv.pdf
     
 

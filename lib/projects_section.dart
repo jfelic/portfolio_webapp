@@ -30,6 +30,22 @@ class ProjectsSection extends StatelessWidget {
                   runSpacing: 32,
                   alignment: WrapAlignment.center,
                   children: [
+                                        ProjectCard(
+                      title: "JustPick 🎬🍿",
+                      screenshot: 'assets/justpick_screenshots/home.png',
+                      details: ProjectDetails(
+                        title: "JustPick 🎬🍿",
+                        url: "https://github.com/jfelic/JustPick",
+                        description: "A SwiftUI mobile application enabling users to create or join interactive sessions for collaborative movie selection, where participants vote on their preferred movies until a unanimous choice is made.",
+                        screenshots: [
+                          'assets/justpick_screenshots/session.png',
+                          'assets/justpick_screenshots/home.png',
+                          'assets/justpick_screenshots/host.png',
+                          'assets/justpick_screenshots/join.png'
+                        ],
+                        technologies: ["SwiftUI", "Firebase Firestore"],
+                      ),
+                    ),
                     ProjectCard(
                       title: "Leaf N' Lit 🌱📚",
                       screenshot: 'assets/leafnlit_screenshots/login_screen.png',
@@ -65,20 +81,6 @@ class ProjectsSection extends StatelessWidget {
                           'assets/tomodoro_screenshots/edit_task.png',
                         ],
                         technologies: ["React Native", "Expo"],
-                      ),
-                    ),
-                    ProjectCard(
-                      title: "JustPick 🎬🍿",
-                      screenshot: 'assets/justpick_screenshots/home.png',
-                      details: ProjectDetails(
-                        title: "JustPick 🎬🍿",
-                        url: "https://github.com/jfelic/JustPick",
-                        description: "🚧 This project is under construction 🚧",
-                        screenshots: [
-                          'assets/justpick_screenshots/home.png',
-                          'assets/justpick_screenshots/host.png',
-                        ],
-                        technologies: ["SwiftUI", "Firebase Firestore"],
                       ),
                     ),
                   ],
@@ -235,7 +237,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   throw Exception('Could not launch $url');
                 }
               },
-              child: Text(
+              child: SelectableText(
                 widget.url,
                 style: const TextStyle(
                   fontSize: 18,
@@ -245,7 +247,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
               ),
             ),
             const SizedBox(height: 16),
-            Text(widget.description),
+            SelectableText(widget.description),
             const SizedBox(height: 16),
             const Text(
               "Screenshots",
