@@ -207,6 +207,7 @@ class ProjectDetails extends StatefulWidget {
 
 class _ProjectDetailsState extends State<ProjectDetails> {
   final ScrollController _projectsScrollController = ScrollController();
+  bool _isHovering = false;
 
   @override
   void dispose() {
@@ -232,6 +233,8 @@ class _ProjectDetailsState extends State<ProjectDetails> {
             const SizedBox(height: 8),
             MouseRegion(
               cursor: SystemMouseCursors.click,
+              onEnter: (_) => setState(() => _isHovering = true),
+              onExit: (_) => setState(() => _isHovering = false),
               child: GestureDetector(
                 onTap: () async {
                   final Uri url = Uri.parse(widget.url);
@@ -241,9 +244,9 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                 },
                 child: Text(
                   widget.url,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18,
-                    color: Colors.blue,
+                    color: _isHovering ? const Color.fromARGB(255, 91, 181, 255): const Color.fromARGB(255, 2, 141, 255),
                     decoration: TextDecoration.underline,
                   ),
                 ),
