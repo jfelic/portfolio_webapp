@@ -30,22 +30,22 @@ class ProjectsSection extends StatelessWidget {
                   runSpacing: 32,
                   alignment: WrapAlignment.center,
                   children: [
-                                        ProjectCard(
-                      title: "JustPick 🎬🍿",
-                      screenshot: 'assets/justpick_screenshots/home.png',
-                      details: ProjectDetails(
+                      ProjectCard(
                         title: "JustPick 🎬🍿",
-                        url: "https://github.com/jfelic/JustPick",
-                        description: "A SwiftUI mobile application enabling users to create or join interactive sessions for collaborative movie selection, where participants vote on their preferred movies until a unanimous choice is made.",
-                        screenshots: [
-                          'assets/justpick_screenshots/session.png',
-                          'assets/justpick_screenshots/home.png',
-                          'assets/justpick_screenshots/host.png',
-                          'assets/justpick_screenshots/join.png'
-                        ],
-                        technologies: ["SwiftUI", "Firebase Firestore"],
+                        screenshot: 'assets/justpick_screenshots/home.png',
+                        details: ProjectDetails(
+                          title: "JustPick 🎬🍿",
+                          url: "https://github.com/jfelic/JustPick",
+                          description: "A SwiftUI mobile application enabling users to create or join interactive sessions for collaborative movie selection, where participants vote on their preferred movies until a unanimous choice is made.",
+                          screenshots: [
+                            'assets/justpick_screenshots/session.png',
+                            'assets/justpick_screenshots/home.png',
+                            'assets/justpick_screenshots/host.png',
+                            'assets/justpick_screenshots/join.png'
+                          ],
+                          technologies: ["SwiftUI", "Firebase Firestore"],
+                        ),
                       ),
-                    ),
                     ProjectCard(
                       title: "Leaf N' Lit 🌱📚",
                       screenshot: 'assets/leafnlit_screenshots/login_screen.png',
@@ -230,19 +230,22 @@ class _ProjectDetailsState extends State<ProjectDetails> {
               ),
             ),
             const SizedBox(height: 8),
-            GestureDetector(
-              onTap: () async {
-                final Uri url = Uri.parse(widget.url);
-                if (!await launchUrl(url)) {
-                  throw Exception('Could not launch $url');
-                }
-              },
-              child: SelectableText(
-                widget.url,
-                style: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
+            MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () async {
+                  final Uri url = Uri.parse(widget.url);
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
+                child: Text(
+                  widget.url,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ),

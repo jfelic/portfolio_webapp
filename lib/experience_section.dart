@@ -29,7 +29,7 @@ class ExperienceSection extends StatelessWidget {
                   cursor: SystemMouseCursors.click,
                   child: ElevatedButton(
                   onPressed: () async {
-                    final url = Uri.parse('https://drive.google.com/file/d/1DjpTD1B_1RJeAPnUnqjtd1Rl_C3xAgH1/view?usp=sharing');
+                    final url = Uri.parse('https://drive.google.com/file/d/1oFUt-77MDxBpRf4sFsbip0iFrGtFrbzY/view?usp=sharing');
                     if (await canLaunchUrl(url)) {
                       await launchUrl(url);
                     } else {
