@@ -29,7 +29,7 @@ class ExperienceSection extends StatelessWidget {
                   cursor: SystemMouseCursors.click,
                   child: ElevatedButton(
                   onPressed: () async {
-                    final url = Uri.parse('https://drive.google.com/file/d/1oFUt-77MDxBpRf4sFsbip0iFrGtFrbzY/view?usp=sharing');
+                    final url = Uri.parse('https://drive.google.com/file/d/1pteJ2F8jZ2FX_jfidFOVVHB9EGluTlWU/view?usp=sharing');
                     if (await canLaunchUrl(url)) {
                       await launchUrl(url);
                     } else {
@@ -90,32 +90,32 @@ class ExperienceContent extends StatelessWidget {
             position: "Mobile App Development and UX/UI Design Intern",
             duration: "May 2024 - September 2024",
             description: "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
-                "• Rewrote the API Manager class, optimizing data handling and improving maintainability, resulting in a 36% increase in application"
-                    "performance (from an average of 44 FPS to 60 FPS)\n"
-                "• Implemented functionality for users to link and manage social media accounts on their profiles, integrating with a Laravel-based" 
-                    "backend for seamless data synchronization"
+                         "• Rewrote the API Manager class, optimizing data handling and improving maintainability, resulting in a 36% increase in application"
+                            "performance (from an average of 44 FPS to 60 FPS)\n"
+                         "• Implemented functionality for users to link and manage social media accounts on their profiles, integrating with a Laravel-based" 
+                            "backend for seamless data synchronization"
           ),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Research Assistant",
             position: "Virtual Reality Programmer",
             duration: "August 2024 - Present",
-            description: "• Utilizing Unity and C# to help Dr. Schoemann create a Virtual Reality gaming experience",
+            description: "• Utilized C# and the Unity game engine to aid Dr. Schoemann in creating a Virtual Reality experience that provided social commentary on wage theft in the workplace",
           ),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Books In Every Bag",
             position: "Web Developer/Designer",
             duration: "March 2024 - Present",
-            description: "• Developed and maintained the organization's website\n"
-                "• Improved website functionality and user experience",
+            description: "• Designed and developed a mission-critical website for Books in Every Bag using Squarespace CMS, creating an engaging digital presence for this early childhood literacy non-profit that delivers monthly books to children 5 years of age and under",
           ),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Whole Foods Market",
-            position: "Customer Service Representative/Store Receiver",
+            position: "Store Receiver/Customer Service Representative",
             duration: "November 2020 - June 2022",
-            description: "• Provided customer service and managed store inventory",
+            description: "• Store Receiver: Coordinated with multiple vendors and managed daily product deliveries, ensuring accuracy of shipments and maintaining detailed receiving records while adhering to strict quality control standards\n"
+                         "• Customer Service Representative: Provided comprehensive customer service in a fast-paced retail environment, including processing transactions, handling refunds, resolving customer inquiries, and maintaining store cleanliness while consistently delivering excellent shopping experiences",
           ),
         ],
       ),

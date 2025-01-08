@@ -39,22 +39,22 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
       ),
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       actions: [
-        const Text(
-          "Important Links",
-          style: TextStyle(
-            fontSize: 12,
-          ),
-        ),
+        // const Text(
+        //   "Important Links",
+        //   style: TextStyle(
+        //     fontSize: 12,
+        //   ),
+        // ),
 
-        const SizedBox(width: 8),
+        // const SizedBox(width: 8),
 
-        const Icon(
-          Icons.arrow_forward,
-          size: 18,
-          color: Colors.black,
-        ),
+        // const Icon(
+        //   Icons.arrow_forward,
+        //   size: 18,
+        //   color: Colors.black,
+        // ),
 
-        const SizedBox(width: 8),
+        // const SizedBox(width: 8),
 
         MouseRegion(
           cursor: SystemMouseCursors.click,
