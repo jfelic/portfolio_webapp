@@ -14,7 +14,7 @@ class ProjectsSection extends StatelessWidget {
           constraints: const BoxConstraints(
             maxWidth: 835,
           ),
-          child: const ExpansionTile(
+          child: ExpansionTile(
             title: const SelectableText(
               "Projects",
               style: TextStyle(
@@ -29,23 +29,23 @@ class ProjectsSection extends StatelessWidget {
                   spacing: 32,
                   runSpacing: 32,
                   alignment: WrapAlignment.center,
-                  children: [
-                      ProjectCard(
+                  children: const [
+                    ProjectCard(
+                      title: "JustPick 🎬🍿",
+                      screenshot: 'assets/justpick_screenshots/home.png',
+                      details: ProjectDetails(
                         title: "JustPick 🎬🍿",
-                        screenshot: 'assets/justpick_screenshots/home.png',
-                        details: ProjectDetails(
-                          title: "JustPick 🎬🍿",
-                          url: "https://github.com/jfelic/JustPick",
-                          description: "A SwiftUI mobile application enabling users to create or join interactive sessions for collaborative movie selection, where participants vote on their preferred movies until a unanimous choice is made.",
-                          screenshots: [
-                            'assets/justpick_screenshots/session.png',
-                            'assets/justpick_screenshots/home.png',
-                            'assets/justpick_screenshots/host.png',
-                            'assets/justpick_screenshots/join.png'
-                          ],
-                          technologies: ["SwiftUI", "Firebase Firestore"],
-                        ),
+                        url: "https://github.com/jfelic/JustPick",
+                        description: "A SwiftUI mobile application enabling users to create or join interactive sessions for collaborative movie selection, where participants vote on their preferred movies until a unanimous choice is made.",
+                        screenshots: [
+                          'assets/justpick_screenshots/session.png',
+                          'assets/justpick_screenshots/home.png',
+                          'assets/justpick_screenshots/host.png',
+                          'assets/justpick_screenshots/join.png'
+                        ],
+                        technologies: ["SwiftUI", "Firebase Firestore"],
                       ),
+                    ),
                     ProjectCard(
                       title: "Leaf N' Lit 🌱📚",
                       screenshot: 'assets/leafnlit_screenshots/login_screen.png',
@@ -128,20 +128,24 @@ class _ProjectCardState extends State<ProjectCard> {
                   maxWidth: 800,
                   maxHeight: 800,
                 ),
-                child: Stack(
-                  children: [
-                    SingleChildScrollView(
-                      child: widget.details,
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  interactive: true,
+                  child: SingleChildScrollView(
+                    child: Stack(
+                      children: [
+                        widget.details,
+                        Positioned(
+                          right: 8,
+                          top: 8,
+                          child: IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () => Navigator.of(context).pop(),
+                          ),
+                        ),
+                      ],
                     ),
-                    Positioned(
-                      right: 8,
-                      top: 8,
-                      child: IconButton(
-                        icon: const Icon(Icons.close),
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -217,93 +221,101 @@ class _ProjectDetailsState extends State<ProjectDetails> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.title,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+    return Scrollbar(
+      thumbVisibility: true,
+      interactive: true,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.title,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              onEnter: (_) => setState(() => _isHovering = true),
-              onExit: (_) => setState(() => _isHovering = false),
-              child: GestureDetector(
-                onTap: () async {
-                  final Uri url = Uri.parse(widget.url);
-                  if (!await launchUrl(url)) {
-                    throw Exception('Could not launch $url');
-                  }
-                },
-                child: Text(
-                  widget.url,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: _isHovering ? const Color.fromARGB(255, 91, 181, 255): const Color.fromARGB(255, 2, 141, 255),
-                    decoration: TextDecoration.underline,
+              const SizedBox(height: 8),
+              MouseRegion(
+                cursor: SystemMouseCursors.click,
+                onEnter: (_) => setState(() => _isHovering = true),
+                onExit: (_) => setState(() => _isHovering = false),
+                child: GestureDetector(
+                  onTap: () async {
+                    final Uri url = Uri.parse(widget.url);
+                    if (!await launchUrl(url)) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Could not launch ${widget.url}')),
+                      );
+                    }
+                  },
+                  child: Text(
+                    widget.url,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: _isHovering
+                          ? const Color.fromARGB(255, 91, 181, 255)
+                          : const Color.fromARGB(255, 2, 141, 255),
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            SelectableText(widget.description),
-            const SizedBox(height: 16),
-            const Text(
-              "Screenshots",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Scrollbar(
-              controller: _projectsScrollController,
-              thumbVisibility: true,
-              interactive: true,
-              child: SingleChildScrollView(
-                controller: _projectsScrollController,
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: widget.screenshots.map((screenshot) {
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 25.0),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          screenshot,
-                          width: 200,
-                          height: 400,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    );
-                  }).toList(),
+              const SizedBox(height: 16),
+              SelectableText(widget.description),
+              const SizedBox(height: 16),
+              const Text(
+                "Screenshots",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              "Technologies Used",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+              Scrollbar(
+                controller: _projectsScrollController,
+                thumbVisibility: true,
+                interactive: true,
+                child: SingleChildScrollView(
+                  controller: _projectsScrollController,
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: widget.screenshots.map((screenshot) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 25.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            screenshot,
+                            width: 200,
+                            height: 400,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: widget.technologies.map((tech) {
-                return Chip(label: Text(tech));
-              }).toList(),
-            ),
-          ],
+              const SizedBox(height: 16),
+              const Text(
+                "Technologies Used",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: widget.technologies.map((tech) {
+                  return Chip(label: Text(tech));
+                }).toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
