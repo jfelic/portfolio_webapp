@@ -28,15 +28,16 @@ class ExperienceSection extends StatelessWidget {
                 child: MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: ElevatedButton(
-                  onPressed: () async {
-                    final url = Uri.parse('https://drive.google.com/file/d/1pteJ2F8jZ2FX_jfidFOVVHB9EGluTlWU/view?usp=sharing');
-                    if (await canLaunchUrl(url)) {
-                      await launchUrl(url);
-                    } else {
-                      // Handle error
-                      print("Error downloading CV");
-                    }
-                  },
+                    onPressed: () async {
+                      final url = Uri.parse(
+                          'https://drive.google.com/file/d/1PW2pWh4ivAh-c347j54eatvnu6ZYELnv/view?usp=sharing');
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(url);
+                      } else {
+                        // Handle error
+                        print("Error downloading CV");
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       foregroundColor: Colors.white,
@@ -86,37 +87,50 @@ class ExperienceContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ExperienceItem(
-            company: "Plinkd",
-            position: "Mobile App Development and UX/UI Design Intern",
-            duration: "May 2024 - September 2024",
-            description: "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
-                         "• Rewrote the API Manager class, optimizing data handling and improving maintainability, resulting in a 36% increase in application"
-                            "performance (from an average of 44 FPS to 60 FPS)\n"
-                         "• Implemented functionality for users to link and manage social media accounts on their profiles, integrating with a Laravel-based" 
-                            "backend for seamless data synchronization"
+            company: "Global Coast Survey",
+            position: "Full Stack Engineer (Contract)",
+            duration: "February 2025 - Present",
+            description:
+                "• Utilize the LAMP stack (Linux, Apache, MySQL, PHP), HTML/CSS/Bootstrap, and JavaScript (AJAX) to build and manage a contract playform that enbables contractees and administrators to effectively manage contracts and view availabilty.\n"
+                "• Revamped the website's styling by modernizing the UI design, replacing outdated visuals with a contemporary, responsive interface.\n"
+                "• Contribute to ongoing enhancements and maintenance of the site to meet evolving business needs.",
           ),
+          SizedBox(height: 24),
+          ExperienceItem(
+              company: "Plinkd",
+              position: "Mobile App Development and UX/UI Design Intern",
+              duration: "May 2024 - September 2024",
+              description:
+                  "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
+                  "• Rewrote the API Manager class, optimizing data handling and improving maintainability, resulting in a 36% increase in application"
+                  "performance (from an average of 44 FPS to 60 FPS)\n"
+                  "• Implemented functionality for users to link and manage social media accounts on their profiles, integrating with a Laravel-based"
+                  "backend for seamless data synchronization"),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Research Assistant",
             position: "Virtual Reality Programmer",
-            duration: "August 2024 - Present",
-            description: "• Utilized C# and the Unity game engine to aid Dr. Schoemann in creating a Virtual Reality experience that provided social commentary on wage theft in the workplace",
+            duration: "August 2024 - December 2025",
+            description:
+                "• Utilized C# and the Unity game engine to aid Dr. Schoemann in creating a Virtual Reality experience that provided social commentary on wage theft in the workplace",
           ),
           SizedBox(height: 24),
           ExperienceItem(
             company: "Books In Every Bag",
             position: "Web Developer/Designer",
             duration: "March 2024 - Present",
-            description: "• Designed and developed a mission-critical website for Books in Every Bag using Squarespace CMS, creating an engaging digital presence for this early childhood literacy non-profit that delivers monthly books to children 5 years of age and under",
+            description:
+                "• Designed and developed a mission-critical website for Books in Every Bag using Squarespace CMS, creating an engaging digital presence for this early childhood literacy non-profit that delivers monthly books to children 5 years of age and under",
           ),
           SizedBox(height: 24),
-          ExperienceItem(
-            company: "Whole Foods Market",
-            position: "Store Receiver/Customer Service Representative",
-            duration: "November 2020 - June 2022",
-            description: "• Store Receiver: Coordinated with multiple vendors and managed daily product deliveries, ensuring accuracy of shipments and maintaining detailed receiving records while adhering to strict quality control standards\n"
-                         "• Customer Service Representative: Provided comprehensive customer service in a fast-paced retail environment, including processing transactions, handling refunds, resolving customer inquiries, and maintaining store cleanliness while consistently delivering excellent shopping experiences",
-          ),
+          // ExperienceItem(
+          //   company: "Whole Foods Market",
+          //   position: "Store Receiver/Customer Service Representative",
+          //   duration: "November 2020 - June 2022",
+          //   description:
+          //       "• Store Receiver: Coordinated with multiple vendors and managed daily product deliveries, ensuring accuracy of shipments and maintaining detailed receiving records while adhering to strict quality control standards\n"
+          //       "• Customer Service Representative: Provided comprehensive customer service in a fast-paced retail environment, including processing transactions, handling refunds, resolving customer inquiries, and maintaining store cleanliness while consistently delivering excellent shopping experiences",
+          // ),
         ],
       ),
     );
