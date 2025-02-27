@@ -91,7 +91,7 @@ class ExperienceContent extends StatelessWidget {
             position: "Full Stack Engineer (Contract)",
             duration: "February 2025 - Present",
             description:
-                "• Utilize the LAMP stack (Linux, Apache, MySQL, PHP), HTML/CSS/Bootstrap, and JavaScript (AJAX) to build and manage a contract playform that enbables contractees and administrators to effectively manage contracts and view availabilty.\n"
+                "• Utilize the LAMP stack (Linux, Apache, MySQL, PHP), HTML/CSS/Bootstrap, and JavaScript (AJAX) to build and manage a contract platform that enables contractees and administrators to effectively manage contracts and view availabilty.\n"
                 "• Revamped the website's styling by modernizing the UI design, replacing outdated visuals with a contemporary, responsive interface.\n"
                 "• Contribute to ongoing enhancements and maintenance of the site to meet evolving business needs.",
           ),

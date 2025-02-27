@@ -2,7 +2,7 @@ name: my_portfolio_webapp
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -31,7 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
@@ -44,7 +43,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
   flutter_lints: ^4.0.0
 
 # For information on the generic Dart part of this file, see the
@@ -56,7 +54,7 @@ flutter:
 
   fonts:
     - family: GeistMono
-      fonts: 
+      fonts:
         - asset: fonts/GeistMono-Bold.ttf
         - asset: fonts/GeistMono-Regular.ttf
         - asset: fonts/GeistMono-SemiBold.ttf
@@ -77,6 +75,10 @@ flutter:
     - assets/React.svg
     - assets/Swift.svg
     - assets/Unity.svg
+    - assets/PHP.svg
+    - assets/Apache.svg
+    - assets/Linux.svg
+    - assets/MySQL.svg
     - assets/leafnlit_screenshots/active_session.png
     - assets/leafnlit_screenshots/add_book_screen.png
     - assets/leafnlit_screenshots/garden_screen.png
@@ -95,7 +97,3 @@ flutter:
     - assets/justpick_screenshots/host.png
     - assets/justpick_screenshots/join.png
     - assets/cv.pdf
-    
-
-
-

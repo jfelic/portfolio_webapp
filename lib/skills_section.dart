@@ -12,7 +12,7 @@ const double skillIconPadding = 20.0;
 
 class _SkillsSectionState extends State<SkillsSection> {
   final ScrollController _skillsScrollController = ScrollController();
-  
+
   @override
   void dispose() {
     _skillsScrollController.dispose();
@@ -37,6 +37,15 @@ class _SkillsSectionState extends State<SkillsSection> {
             ),
           ),
           children: [
+            const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: SelectableText(
+                "I have hands-on experience with every language and technology listed below—whether from contract work, internships, or personal projects. These aren’t just tools I’ve read about; they’re tools I’ve actively used in real-world scenarios.",
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+            ),
             Scrollbar(
               controller: _skillsScrollController,
               thumbVisibility: true,
@@ -47,34 +56,6 @@ class _SkillsSectionState extends State<SkillsSection> {
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Swift.svg',
-                        label: 'Swift',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Dart.svg',
-                        label: 'Dart',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/Flutter.svg',
-                        label: 'Flutter',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(skillIconPadding),
-                      child: SkillIcon(
-                        assetPath: 'assets/React.svg',
-                        label: 'React Native',
-                      ),
-                    ),
                     Padding(
                       padding: EdgeInsets.all(skillIconPadding),
                       child: SkillIcon(
@@ -90,6 +71,10 @@ class _SkillsSectionState extends State<SkillsSection> {
                       ),
                     ),
                     Padding(
+                        padding: EdgeInsets.all(skillIconPadding),
+                        child: SkillIcon(
+                            assetPath: 'assets/PHP.svg', label: "PHP")),
+                    Padding(
                       padding: EdgeInsets.all(skillIconPadding),
                       child: SkillIcon(
                         assetPath: 'assets/JavaScript.svg',
@@ -99,8 +84,8 @@ class _SkillsSectionState extends State<SkillsSection> {
                     Padding(
                       padding: EdgeInsets.all(skillIconPadding),
                       child: SkillIcon(
-                        assetPath: 'assets/Next.js.svg',
-                        label: 'Next.js',
+                        assetPath: 'assets/MySQL.svg',
+                        label: 'MySQL',
                       ),
                     ),
                     Padding(
@@ -120,17 +105,52 @@ class _SkillsSectionState extends State<SkillsSection> {
                     Padding(
                       padding: EdgeInsets.all(skillIconPadding),
                       child: SkillIcon(
-                        assetPath: 'assets/CSharp.svg',
-                        label: 'C#',
+                        assetPath: 'assets/Linux.svg',
+                        label: 'Linux',
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(skillIconPadding),
                       child: SkillIcon(
-                        assetPath: 'assets/Unity.svg',
-                        label: 'Unity',
+                        assetPath: 'assets/Apache.svg',
+                        label: 'Apache',
                       ),
                     ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Swift.svg',
+                        label: 'Swift',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/Flutter.svg',
+                        label: 'Flutter',
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(skillIconPadding),
+                      child: SkillIcon(
+                        assetPath: 'assets/React.svg',
+                        label: 'React Native',
+                      ),
+                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.all(skillIconPadding),
+                    //   child: SkillIcon(
+                    //     assetPath: 'assets/CSharp.svg',
+                    //     label: 'C#',
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: EdgeInsets.all(skillIconPadding),
+                    //   child: SkillIcon(
+                    //     assetPath: 'assets/Unity.svg',
+                    //     label: 'Unity',
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

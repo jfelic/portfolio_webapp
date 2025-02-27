@@ -20,9 +20,9 @@ class IntroductionSection extends StatelessWidget {
               Expanded(
                 child: SelectableText(
                   "Hello, and welcome!\n\n"
-                  "I'm a senior Computer Science student based in Charleston, SC, specializing in Mobile Development. "
-                  "(In fact, this website was built using Flutter.) While mobile development has been my recent focus, my four years of academic training as a Computer Science student have equipped me with a solid foundation in Computer Science principles.\n\n"
-                  "This means I'm not just a mobile developer—I'm a capable software engineer who can adapt and excel in a variety of development contexts.\n\n"
+                  "I'm a senior Computer Science student based in Charleston, SC, specializing in Full Stack Web Development and Mobile Development. (Fun fact: I built this website using Flutter.)\n\n"
+                  "My four years of academic training as a Computer Science student have equipped me with a solid foundation in Computer Science/Software Engineering principles."
+                  "This means that even if I don't have experience in a specific technology, I can adapt and excel in a variety of development contexts.\n\n"
                   "Please take a look around, and thanks for visiting!",
                   style: TextStyle(
                     fontSize: 16,
