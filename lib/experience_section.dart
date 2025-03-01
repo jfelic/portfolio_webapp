@@ -98,7 +98,7 @@ class ExperienceContent extends StatelessWidget {
           SizedBox(height: 24),
           ExperienceItem(
               company: "Plinkd",
-              position: "Mobile App Development and UX/UI Design Intern",
+              position: "Mobile App Development Intern - iOS",
               duration: "May 2024 - September 2024",
               description:
                   "• Optimized API calls and improved average fps of the iOS application from 44 FPS to 60 FPS\n"
@@ -138,15 +138,15 @@ class ExperienceContent extends StatelessWidget {
 }
 
 class ExperienceItem extends StatelessWidget {
-  final String company;
   final String position;
+  final String company;
   final String duration;
   final String description;
 
   const ExperienceItem({
     super.key,
-    required this.company,
     required this.position,
+    required this.company,
     required this.duration,
     required this.description,
   });
@@ -157,14 +157,14 @@ class ExperienceItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SelectableText(
-          company,
+          position,
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
         SelectableText(
-          position,
+          company,
           style: const TextStyle(
             fontSize: 16,
             fontStyle: FontStyle.italic,
