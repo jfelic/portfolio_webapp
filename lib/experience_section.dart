@@ -30,7 +30,7 @@ class ExperienceSection extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () async {
                       final url = Uri.parse(
-                          'https://drive.google.com/file/d/1PW2pWh4ivAh-c347j54eatvnu6ZYELnv/view?usp=sharing');
+                          'https://drive.google.com/file/d/1EG6aZXxUSz8XqW83V6NsZ7h4Omg2z0no/view?usp=sharing');
                       if (await canLaunchUrl(url)) {
                         await launchUrl(url);
                       } else {
@@ -92,8 +92,16 @@ class ExperienceContent extends StatelessWidget {
             duration: "February 2025 - Present",
             description:
                 "• Utilize the LAMP stack (Linux, Apache, MySQL, PHP), HTML/CSS/Bootstrap, and JavaScript (AJAX) to build and manage a contract platform that enables contractees and administrators to effectively manage contracts and view availabilty.\n"
-                "• Revamped the website's styling by modernizing the UI design, replacing outdated visuals with a contemporary, responsive interface.\n"
-                "• Contribute to ongoing enhancements and maintenance of the site to meet evolving business needs.",
+                "• Completely redesigned the website's UI using Bootstrap CSS, creating a modern, responsive interface that improved user experience.\n"
+                "• Contribute to ongoing enhancements and mainImplemented a PDF invoice generation system allowing users to create and download customized invoices directly from the platform.\n",
+          ),
+          ExperienceItem(
+            company: "Querri",
+            position: "Machine Learning Engineering Intern",
+            duration: "February 2025 - Present",
+            description:
+                "•Developing small language models (SLMs) using Azure AI Foundry to create an automated data summarization system for corporate clients.\n"
+                "• Building a companion SLM that transforms summarized data into data visualizations, creating an end-to-end analytics solution.",
           ),
           SizedBox(height: 24),
           ExperienceItem(
